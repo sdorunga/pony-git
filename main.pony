@@ -4,6 +4,7 @@ use "json"
 actor Main
   new create(env: Env) =>
     let usernames = env.args.values()
+    usernames.shift()
     for username in usernames do
       Request.create(env).get(username)
     end
