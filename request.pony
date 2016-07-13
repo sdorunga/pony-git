@@ -10,6 +10,7 @@ actor Request
       let url = URL.build("https://api.github.com/users/" + username)
       var handler = LoginPrinter.create(_env)
       let request = Payload.request("GET", url, handler)
+
       request.update("User-Agent", "Pony")
       Client.create(_env.root as AmbientAuth).apply(consume request)
     end
